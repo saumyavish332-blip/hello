@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Bulb Control</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #080d19;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    width: 350px;
+    padding: 35px 25px;
+    text-align: center;
+    border-radius: 25px;
+    background: linear-gradient(145deg,#18243a,#101827);
+    border: 1px solid #293a53;
+    box-shadow: 0 20px 60px #0009;
+}
+
+h1 {
+    color: white;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+p {
+    color: #899bb5;
+    font-size: 13px;
+}
+
+.bulb-area {
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    border-radius: 20px;
+    transition: 0.4s;
+}
+
+.bulb {
+    width: 120px;
+    height: 120px;
+    fill: #39465b;
+    transition: 0.4s;
+}
+
+.bulb.on {
+    fill: #ffd84d;
+    filter: drop-shadow(0 0 15px #ffcf33)
+            drop-shadow(0 0 35px #ffbd27)
+            drop-shadow(0 0 65px #ffad20);
+}
+
+.bulb-area.lit {
+    background: radial-gradient(
+        circle,
+        #ffcc3320,
+        transparent 70%
+    );
+}
+
+.status {
+    color: #ff6868;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.status.on {
+    color: #ffd84d;
+    text-shadow: 0 0 12px #ffca35;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}
+
+button {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.2);
+}
+
+button:active {
+    transform: scale(.95);
+}
+
+.on-btn {
+    color: white;
+    background: linear-gradient(135deg,#10c987,#078b60);
+}
+
+.off-btn {
+    color: white;
+    background: linear-gradient(135deg,#f05252,#c72b3b);
+}
+
+.footer {
+    margin-top: 25px;
+    color: #62738d;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>💡 Smart Bulb</h1>
+    <p>Intelligent Lighting Control</p>
+
+    <div class="bulb-area" id="bulbArea">
+
+        <svg class="bulb" id="bulb"
+             viewBox="0 0 100 130"
+             xmlns="http://www.w3.org/2000/svg">
+
+            <path d="M50 5
+            C25 5 12 25 15 48
+            C17 65 30 72 34 91
+            L66 91
+            C70 72 83 65 85 48
+            C88 25 75 5 50 5Z"/>
+
+            <path d="M36 96 H64 V102 H36Z"
+                  fill="#94a3b8"/>
+
+            <path d="M38 106 H62 V112 H38Z"
+                  fill="#94a3b8"/>
+
+            <path d="M42 116 H58 V122 H42Z"
+                  fill="#94a3b8"/>
+
+        </svg>
+
+    </div>
+
+    <div class="status" id="status">
+        ● BULB IS OFF
+    </div>
+
+    <div class="buttons">
+        <button class="on-btn" onclick="bulbOn()">
+            ☀ ON
+        </button>
+
+        <button class="off-btn" onclick="bulbOff()">
+            ● OFF
+        </button>
+    </div>
+
+    <div class="footer">
+        SMART LIGHTING SYSTEM
+    </div>
+
+</div>
+
+<script>
+const bulb = document.getElementById("bulb");
+const area = document.getElementById("bulbArea");
+const status = document.getElementById("status");
+
+function bulbOn() {
+    bulb.classList.add("on");
+    area.classList.add("lit");
+    status.innerHTML = "● BULB IS ON";
+    status.classList.add("on");
+}
+
+function bulbOff() {
+    bulb.classList.remove("on");
+    area.classList.remove("lit");
+    status.innerHTML = "● BULB IS OFF";
+    status.classList.remove("on");
+}
+</script>
+
+</body>
+</html>

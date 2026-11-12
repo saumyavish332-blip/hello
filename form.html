@@ -1,0 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saumya Sharma | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #101D2C;
+  --navy-light: #1C3043;
+  --cream: #F5F0E8;
+  --gold: #C6A66B;
+  --white: #FFFFFF;
+  --text: #D9DDE2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 9%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(16,29,44,.95);
+  backdrop-filter: blur(15px);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.hero {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 70px 10%;
+  gap: 50px;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.tag {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 7vw, 85px);
+  line-height: 1.12;
+  font-weight: 500;
+}
+
+h1 span {
+  color: var(--gold);
+}
+
+.hero p {
+  color: var(--text);
+  margin-top: 25px;
+  line-height: 1.9;
+  max-width: 500px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 35px;
+  padding: 15px 30px;
+  background: var(--gold);
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 3px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: white;
+  transform: translateY(-4px);
+}
+
+.hero-card {
+  width: 320px;
+  height: 390px;
+  border: 1px solid rgba(198,166,107,.5);
+  border-radius: 160px 160px 8px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg,#26394A,#101D2C);
+  box-shadow: 20px 20px 80px rgba(0,0,0,.25);
+  position: relative;
+}
+
+.hero-card::before {
+  content: "S";
+  font-family: 'Playfair Display', serif;
+  font-size: 180px;
+  color: rgba(198,166,107,.65);
+}
+
+section {
+  padding: 100px 10%;
+}
+
+.section-label {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 45px;
+  font-weight: 500;
+  margin-bottom: 35px;
+}
+
+.about {
+  background: var(--cream);
+  color: var(--navy);
+}
+
+.about p {
+  max-width: 800px;
+  line-height: 2;
+  color: #536071;
+  font-size: 16px;
+}
+
+.skills-grid, .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.skill, .project {
+  background: var(--navy-light);
+  padding: 35px 25px;
+  border: 1px solid rgba(198,166,107,.15);
+  transition: .3s;
+}
+
+.skill:hover, .project:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+}
+
+.skill h3, .project h3 {
+  color: var(--gold);
+  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+}
+
+.skill p, .project p {
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.project {
+  min-height: 220px;
+}
+
+.project span {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.contact {
+  background: var(--cream);
+  color: var(--navy);
+  text-align: center;
+}
+
+.contact p {
+  color: #657080;
+  margin: 15px 0;
+}
+
+.contact .btn {
+  color: white;
+  background: var(--navy);
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  color: #AAB3BE;
+  font-size: 12px;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+footer span {
+  color: var(--gold);
+}
+
+@media(max-width: 768px) {
+  nav {
+    padding: 20px 5%;
+  }
+
+  nav ul {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 10px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 75px 7%;
+  }
+
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-card {
+    width: 250px;
+    height: 300px;
+  }
+
+  .skills-grid, .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 75px 7%;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">Saumya.</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-content">
+    <div class="tag">WELCOME TO MY PORTFOLIO</div>
+
+    <h1>Hi, I'm <span>Saumya Sharma.</span></h1>
+
+    <p>
+      A passionate and creative professional who believes
+      in transforming ideas into meaningful digital experiences.
+      Welcome to my personal portfolio.
+    </p>
+
+    <a href="#projects" class="btn">Explore My Work ↗</a>
+  </div>
+
+  <div class="hero-card"></div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-label">01 / ABOUT ME</div>
+  <h2 class="section-title">A Little About Me.</h2>
+
+  <p>
+    Hello! I'm Saumya Sharma. I am an enthusiastic individual
+    passionate about creativity, learning and professional growth.
+    I enjoy exploring new ideas, developing my skills and creating
+    meaningful work. My goal is to continuously grow and make
+    a positive impact through everything I do.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">02 / MY EXPERTISE</div>
+  <h2 class="section-title">Skills & Strengths.</h2>
+
+  <div class="skills-grid">
+    <div class="skill">
+      <h3>01. Creativity</h3>
+      <p>Creative thinking, innovative ideas and problem solving.</p>
+    </div>
+
+    <div class="skill">
+      <h3>02. Communication</h3>
+      <p>Effective communication and collaborative teamwork.</p>
+    </div>
+
+    <div class="skill">
+      <h3>03. Professionalism</h3>
+      <p>Time management, dedication and continuous learning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">03 / MY WORK</div>
+  <h2 class="section-title">Selected Projects.</h2>
+
+  <div class="projects-grid">
+    <div class="project">
+      <span>PROJECT 01</span>
+      <h3>Creative Portfolio</h3>
+      <p>A personal platform showcasing creativity and professional identity.</p>
+    </div>
+
+    <div class="project">
+      <span>PROJECT 02</span>
+      <h3>Digital Experience</h3>
+      <p>A modern concept focused on user experience and visual design.</p>
+    </div>
+
+    <div class="project">
+      <span>PROJECT 03</span>
+      <h3>Personal Branding</h3>
+      <p>A creative approach to building a unique digital presence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label">04 / GET IN TOUCH</div>
+  <h2 class="section-title">Let's Connect.</h2>
+
+  <p>Have an opportunity or an interesting idea? Let's talk.</p>
+
+  <!-- Replace with your real email -->
+  <a href="mailto:yourmail@example.com" class="btn">
+    Say Hello ✉
+  </a>
+</section>
+
+<footer>
+  © 2026 <span>Saumya Sharma</span>. All Rights Reserved.
+  <br><br>
+  Designed with elegance & creativity.
+</footer>
+
+</body>
+</html>
